@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kafka Society Challenge</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 800px;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #777;
+        }
+
+        #math-puzzle {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+
+        #final-destination-link {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        #final-destination-link a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        #final-destination-link a:hover {
+            text-decoration: underline;
+        }
+
+        #verification-input {
+            margin-top: 20px;
+            padding: 10px;
+            width: 100px;
+        }
+
+        #verify-button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Kafka Society Challenge</h1>
+        <p>Solve the following to reveal your final destination.</p>
+
+        <p id="math-puzzle">Sum together all the birth years of all the writers who have inspired each circle of Kafka Society:</p>
+
+        <input type="number" id="verification-input" placeholder="Enter Sum">
+        <button id="verify-button">Verify</button>
+
+        <!-- The math puzzle answer -->
+        <p id="final-destination-link" style="display: none;"><a href="https://chat.whatsapp.com/LK0bEqcsfdBFvKotOJjcnW">Visit the Final Round</a></p>
+    </div>
+
+    <script>
+        // JavaScript code to calculate the sum of birth years and show the link if the entered sum is correct
+        document.addEventListener("DOMContentLoaded", function () {
+            const birthYears = [1775, 1816, 1809, 156]; // Replace with the actual birth years of the writers
+
+            const correctSum = birthYears.reduce((total, year) => total + year, 0);
+
+            const verifyButton = document.getElementById("verify-button");
+            const verificationInput = document.getElementById("verification-input");
+            const finalDestinationLink = document.getElementById("final-destination-link");
+
+            verifyButton.addEventListener("click", function () {
+                const userEnteredSum = parseInt(verificationInput.value);
+                if (!isNaN(userEnteredSum) && userEnteredSum === correctSum) {
+                    finalDestinationLink.style.display = "block";
+                } else {
+                    alert("Incorrect sum. Please try again.");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
